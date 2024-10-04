@@ -1,17 +1,16 @@
+targets:
+  $default:
+    builders:
+      widget_component|widget_component:
+        enabled: true
+
 builders:
-  urlBuilder:
-    target: ":urlBuilder"
-    import: "package:query_cache_generator/query_cache_generator.dart"
-    builder_factories: ["urlBuilder"]
-    build_extensions: { ".dart": [".url.g.part"] }
+  componentBuilder:
+    target: ":widget_component_generator"
+    import: "package:widget_component/builders.dart"
+    builder_factories: ["widgetComponentBuilder"]
+    build_extensions: { ".dart": [".component.g.part"] }
     auto_apply: dependents
-    build_to: cache
+    build_to: source
     applies_builders: ["source_gen|combining_builder"]
-  validityBuilder:
-    target: ":validityBuilder"
-    import: "package:query_cache_generator/query_cache_generator.dart"
-    builder_factories: [ "validityBuilder" ]
-    build_extensions: { ".dart": [".validity.g.part"] }
-    auto_apply: dependents
-    build_to: cache
-    applies_builders: ["source_gen|combining_builder"]
+

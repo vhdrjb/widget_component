@@ -10,11 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  source_gen: ^1.5.0
+  build: any
+  widget_component_annotation: 1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  build_runner: ^2.4.13
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
