@@ -1,0 +1,17 @@
+builders:
+  urlBuilder:
+    target: ":urlBuilder"
+    import: "package:query_cache_generator/query_cache_generator.dart"
+    builder_factories: ["urlBuilder"]
+    build_extensions: { ".dart": [".url.g.part"] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+  validityBuilder:
+    target: ":validityBuilder"
+    import: "package:query_cache_generator/query_cache_generator.dart"
+    builder_factories: [ "validityBuilder" ]
+    build_extensions: { ".dart": [".validity.g.part"] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
