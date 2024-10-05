@@ -1,5 +1,5 @@
 name: widget_component
-description: "A new Flutter package project."
+description: "library to generate enhanced BlocBuilders or BLoC"
 version: 0.0.1
 homepage:
 

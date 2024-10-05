@@ -1,39 +1,80 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# widget_component
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+`widget_component` is a Flutter library designed to simplify the creation of stateless widgets with optimized state management using `BlocBuilder`. This library reduces unnecessary rebuilds, improving your application's performance.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+The library consists of two parts:
+- **widget_component**: The main library for creating optimized stateless widgets.
+- **widget_component_annotation**: An annotation library that helps in generating widgets from annotated classes.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Automatic widget generation**: Annotate your classes with `@WidgetComponent` to auto-generate stateless widgets.
+- **Optimized State Management**: Uses `BlocBuilder` to handle widget states efficiently.
+- **Performance Enhancement**: Reduces unnecessary rebuilds, leading to improved performance.
 
-## Getting started
+## Getting Started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+### Installation
+
+Add the following to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  
+  widget_component_annotation: latest_version
+dev_dependencies:
+  build_runner: latest_version
+  widget_component: latest_version
+```
+
+Run `flutter pub get` to install the dependencies.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use **widget component**, annotate your class with `@WidgetComponent`. The library will generate a corresponding widget for the class and manage its state using BlocBuilder.
 
+Here's a basic example:
 ```dart
-const like = 'sample';
+
+@WidgetComponent(
+    bloc: SampleBloc,
+    baseState: SampleState,
+    state: UserInfoState,
+    dataStateClass: UserDataState,
+    errorStateClass: UserErrorState,
+    loadingStateClass: UserLoadingState)
 ```
 
-## Additional information
+### Detail
+- bloc : the bloc class
+```dart
+class SampleBloc extends Bloc<SampleEvent, SampleState>
+```
+- baseState: the state that is defined for bloc 
+`SampleState`
+- state: it should be a `sealed class` extends `baseState`
+- dataStateClass: the class that emit the data into UI
+- errorStateClass: the class that emit the error into UI
+- loadingStateClass: the class that emit the loading into UI
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+
+the run `flutter pub run build_runner build/watch`.
+
+add generated file to your class by using `part` : 
+```dart
+part 'sample_class.g.dart';
+```
+
+override the method that you need for your states :
+
+#### onDataWidget - mandatory :
+```dart
+  @override
+  Widget onDataWidget(BuildContext context, UserDataState state) {
+    throw UnimplementedError();
+  }
+```
+
+this method will return the 
+
+
