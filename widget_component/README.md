@@ -27,7 +27,14 @@ dev_dependencies:
   widget_component: latest_version
 ```
 
-Run `flutter pub get` to install the dependencies.
+## Running the Code Generator
+
+Run the build_runner to generate your widgets:
+
+```bash
+flutter pub run build_runner build
+```
+This will process the annotated classes and generate corresponding stateless widgets.
 
 ## Usage
 
@@ -67,7 +74,17 @@ part 'sample_class.g.dart';
 
 override the method that you need for your states :
 
-#### onDataWidget - mandatory :
+#### onInitWidget - Mandatory* :
+```dart
+  @override
+  Widget onInitWidget(BuildContext context) {
+  throw UnimplementedError();
+  }
+```
+
+This method will return the first view of the widget , when no relevant state is emitted to UI yet.
+
+#### onDataWidget - Mandatory* :
 ```dart
   @override
   Widget onDataWidget(BuildContext context, UserDataState state) {
@@ -75,6 +92,52 @@ override the method that you need for your states :
   }
 ```
 
-this method will return the 
+this method will return the widget when the `dataStateClass` instance emitted to UI
 
+#### onLoadingWidget - Optional :
+```dart
+  @override
+  Widget onLoadingWidget(BuildContext context, LoadingState state) {
+    throw UnimplementedError();
+  }
+```
+
+this method will return the widget when the `LoadingState` instance emitted to UI
+
+#### onErrorWidget - Optional :
+```dart
+  @override
+  Widget onErrorWidget(BuildContext context, UserErrorState state) {
+    throw UnimplementedError();
+  }
+```
+
+this method will return the widget when the `errorStateClass` instance emitted to UI
+
+#### onInitialization - Optional :
+```dart
+  @override
+  void onInitialization(BuildContext context) {
+
+  }
+```
+
+This the first method before any build method being called.
+
+#### shouldRebuild - Optional :
+```dart
+  @override
+  bool shouldRebuild(previous, current) {
+    return true;
+  }
+```
+
+This method will handle the rebuilding condition of this component. By default, it will be `true` when
+the state is instance of `state` in widgetComponent definition but on some condition you may want to customize
+the rebuilding of the widget.
+
+
+### Contributions
+
+We welcome contributions! If you encounter any issues or have feature requests, feel free to open an issue or submit a pull request.
 
