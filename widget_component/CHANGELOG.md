@@ -6,3 +6,7 @@
 * Performance enhancements to prevent unnecessary widget rebuilds.
 * Example usage in documentation.
 
+
+## 1.0.1
+
+* update pub info
