@@ -30,13 +30,13 @@ class WidgetGenerator extends SourceGenerator {
     ''');
 
     output.write('''
-  Widget onDataWidget(BuildContext context, UserDataState state);
+  Widget onDataWidget(BuildContext context, ${values.dataStateClass} state);
 
-  Widget onErrorWidget(BuildContext context, UserErrorState state) {
+  Widget onErrorWidget(BuildContext context, ${values.errorStateClass} state) {
     return Container();
   }
 
-  Widget onLoadingWidget(BuildContext context, LoadingState state) {
+  Widget onLoadingWidget(BuildContext context, ${values.loadingStateClass} state) {
     return Container();
   }
 
