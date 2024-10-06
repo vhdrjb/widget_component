@@ -10,3 +10,7 @@
 ## 1.0.1
 
 * update pub info
+
+## 1.0.2
+
+* fix `state` classes in generator

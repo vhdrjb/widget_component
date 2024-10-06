@@ -1,6 +1,6 @@
 name: widget_component
 description: "library to generate enhanced BlocBuilders or BLoC, Handle UI states easier, Reducing boilerplate codes"
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/vhdrjb/widget_component/
 repository: https://github.com/vhdrjb/widget_component/tree/main/widget_component
 
