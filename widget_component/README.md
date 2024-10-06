@@ -38,6 +38,40 @@ This will process the annotated classes and generate corresponding stateless wid
 
 ## Usage
 
+
+### States Structure
+
+This widget use `sealed class` in dart. You should create a base class for these 3 states.
+
+```dart
+sealed class UserInfoState extends SampleState
+```
+
+#### Data State
+
+This class will carry the success data from bloc to UI. It should be subclass of `sealed class` and `DataState` class (contains in annotation library)
+```dart
+class UserDataState extends UserInfoState implements DataState
+```
+
+#### Loading State
+
+This class tell the UI that it should show the loading. It should be subclassed of `sealed class` and `DataState` class (contains in annotation library)
+```dart
+class UserLoadingState extends UserInfoState implements LoadingState
+```
+
+
+#### Error State
+
+This class will carry the error data from bloc to UI. It should be subclassed of `sealed class` and `DataState` class (contains in annotation library)
+```dart
+class UserErrorState extends UserInfoState implements ErrorState
+```
+
+
+
+
 To use **widget component**, annotate your class with `@WidgetComponent`. The library will generate a corresponding widget for the class and manage its state using BlocBuilder.
 
 Here's a basic example:
