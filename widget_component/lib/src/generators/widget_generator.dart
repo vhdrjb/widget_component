@@ -10,15 +10,16 @@ class WidgetGenerator extends SourceGenerator {
 
   @override
   void generate(StringBuffer output) {
-
-    output.writeln('Widget _checkRebuild(BuildContext context, ${values.baseState} state) {');
+    output.writeln(
+        'Widget _checkRebuild(BuildContext context, ${values.baseState} state) {');
     output.writeln('return switch (state) {');
-    output.writeln('${values.dataStateClass}() => onDataWidget(context, state),');
-    if (values.errorStateClass!=null) {
+    output
+        .writeln('${values.dataStateClass}() => onDataWidget(context, state),');
+    if (values.errorStateClass != null) {
       output.writeln(
           '${values.errorStateClass}() => onErrorWidget(context, state),');
     }
-    if (values.loadingStateClass!=null) {
+    if (values.loadingStateClass != null) {
       output.writeln(
           '${values.loadingStateClass}() => onLoadingWidget(context, state),');
     }

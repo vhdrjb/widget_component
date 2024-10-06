@@ -5,5 +5,4 @@ class StartBlockGenerator extends SourceGenerator {
   void generate(StringBuffer output) {
     output.write('{');
   }
-
 }

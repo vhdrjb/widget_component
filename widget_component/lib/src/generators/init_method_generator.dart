@@ -7,5 +7,4 @@ class InitMethodGenerator extends SourceGenerator {
       void onInitialization(BuildContext context) {}
     ''');
   }
-
 }
