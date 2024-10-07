@@ -1,6 +1,6 @@
 name: widget_component_annotation
-description: "annotaions for widget component library"
-version: 1.0.1
+description: "annotations for widget component library to enhance and creating boilerplate codes for BlocBuilder"
+version: 1.0.2
 homepage: https://github.com/vhdrjb/widget_component
 
 environment:

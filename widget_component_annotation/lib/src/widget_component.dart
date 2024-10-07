@@ -1,4 +1,4 @@
-abstract class WidgetComponent {
+class WidgetComponent {
   final Type dataStateClass;
   final Type? loadingStateClass;
   final Type? errorStateClass;
