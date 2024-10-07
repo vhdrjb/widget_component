@@ -31,16 +31,25 @@ class WidgetGenerator extends SourceGenerator {
 
     output.write('''
   Widget onDataWidget(BuildContext context, ${values.dataStateClass} state);
-
-  Widget onErrorWidget(BuildContext context, ${values.errorStateClass} state) {
-    return Container();
-  }
-
+   ''');
+    if (values.errorStateClass != null) {
+      output.write('''
+      Widget onErrorWidget(BuildContext context, ${values.errorStateClass} state)
+      {
+        return Container();
+      }
+         ''');
+    }
+    if (values.loadingStateClass != null) {
+      output.write('''
   Widget onLoadingWidget(BuildContext context, ${values.loadingStateClass} state) {
     return Container();
   }
+   ''');
+    }
 
-  Widget onInitWidget(BuildContext context);
+    output.write('''
+    Widget onInitWidget(BuildContext context);
     ''');
   }
 }

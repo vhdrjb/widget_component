@@ -19,9 +19,12 @@ class AnnotationValueReader {
         dataStateClass: annotation.read(_dataStateClass).typeValue.toString(),
         bloc: annotation.read(_bloc).typeValue.toString(),
         state: annotation.read(_state).typeValue.toString(),
-        errorStateClass: annotation.read(_errorStateClass).typeValue.toString(),
-        loadingStateClass:
-            annotation.read(_loadingStateClass).typeValue.toString(),
+        errorStateClass: annotation.read(_errorStateClass).isNull
+            ? null
+            : annotation.read(_errorStateClass).typeValue.toString(),
+        loadingStateClass: annotation.read(_loadingStateClass).isNull
+            ? null
+            : annotation.read(_loadingStateClass).typeValue.toString(),
         baseState: annotation.read(_baseState).typeValue.toString());
   }
 }

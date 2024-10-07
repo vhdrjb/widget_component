@@ -14,3 +14,8 @@
 ## 1.0.2
 
 * fix `state` classes in generator
+
+## 1.0.3
+
+* update annotations version
+* fix generator for empty states
