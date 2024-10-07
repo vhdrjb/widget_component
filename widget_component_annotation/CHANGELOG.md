@@ -9,3 +9,7 @@
 ## 1.0.2
 
 * update documentation
+
+## 1.0.3
+
+* fix for hot reload
