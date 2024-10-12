@@ -19,3 +19,7 @@
 
 * update annotations version
 * fix generator for empty states
+
+## 1.0.4
+
+* update dart version
