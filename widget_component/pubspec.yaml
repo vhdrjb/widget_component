@@ -1,6 +1,6 @@
 name: widget_component
 description: "library to generate enhanced BlocBuilders or BLoC, Handle UI states easier, Reducing boilerplate codes"
-version: 1.0.6
+version: 1.0.5
 homepage: https://github.com/vhdrjb/widget_component/
 repository: https://github.com/vhdrjb/widget_component/tree/main/widget_component
 
@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   source_gen: ^1.5.0
   build:  ^2.4.1
-  analyzer: ^6.7.0
+  analyzer: any
   widget_component_annotation: ^1.0.4
 
 dev_dependencies:
